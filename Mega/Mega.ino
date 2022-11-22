@@ -110,8 +110,8 @@ void LuiPhai(){
 }
 //------------------------Chuyển động khi dò line--------------------
 void TienLine(){
-   analogWrite(ENA,120);
-   analogWrite(ENB,120);
+   analogWrite(ENA,100);
+   analogWrite(ENB,100);
  
    digitalWrite(M11,1);
    digitalWrite(M12,0);
@@ -141,34 +141,24 @@ void PhaiLine(){
 }
 //---------------------Doline2bongngungu---------------
 void Doline1Bong(){
-   Serial.print("Trai:");
-   Serial.println(digitalRead(left));
-   Serial.print("Phai:");
-   Serial.println(digitalRead(right));
- 
+  byte trai = digitalRead(trai1)+digitalRead(trai2);
+  byte phai = digitalRead(phai1)+digitalRead(phai2);
   //line detected by both
-  if(digitalRead(left)==digitalRead(right)){  //bị che 1, không che 0
-    //Forward
-    TienLine();
- 
+  if(digitalRead(trai)>digitalRead(phai)){ //chạm line bên trái
+    TraiLine();
   }
-  // Đang để là dò line trắng
-  else if(digitalRead(left)==1 && digitalRead(right)==0){ //chạm line bên phải
+  else if(digitalRead(trai)<digitalRead(phai)){ //chạm line bên trái
     PhaiLine();
   }
- 
-  else if(digitalRead(left)==0 && digitalRead(right)==1){ //chạm line bên trái
-    //turn right
-    TraiLine();
-   
-  }
+  else TienLine();
 }
 
 void DungDoline(){
-  digitalWrite(left,LOW);
-  digitalWrite(right,LOW);
+  digitalWrite(trai1,LOW);
+  digitalWrite(trai2,LOW);
+  digitalWrite(phai1,LOW);
+  digitalWrite(phai2,LOW);
   Dung();
-
 }
  
 //------------------------------------------
@@ -180,8 +170,10 @@ void pinModeSetup(){
   pinMode(ENA,OUTPUT);
   pinMode(ENB,OUTPUT);
  
-  pinMode(left,INPUT);
-  pinMode(right,INPUT);
+  pinMode(trai1,INPUT);
+  pinMode(trai2,INPUT);
+  pinMode(phai1,INPUT);
+  pinMode(phai2,INPUT);
 }
 //-----------------Đọc lệnh từ cmd và điều khiển động cơ-----
 void ButtonControl(char cmd){
@@ -228,7 +220,7 @@ void loop() {
   } else Dung();
   bool autoMode=0;
   if(cmd=='A') autoMode=1;
-  while(autoMode==1){
+  while(autoMode==1){ 
     cmd=BT.read();
     if(cmd=='X'){
       DungDoline();
