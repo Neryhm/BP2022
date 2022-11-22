@@ -6,10 +6,12 @@ const int CSN = 53;
 #define M21 3//Trai
 #define M22 2//Trai
  
-#define ENA 9//Phai
-#define ENB 8//Trai
+#define ENA 9
+#define ENB 8
  
-#define left A0//DolineTrai
-#define right A1//DolinePhai
+#define trai1 10
+#define trai2 11
+#define phai1 12
+#define phai2 13
  
  
