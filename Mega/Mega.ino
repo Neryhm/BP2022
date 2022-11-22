@@ -6,6 +6,8 @@
 char cmd;
 ///--------------------Chuyển động của xe-------------
 void Dung(){
+   analogWrite(ENA,0);
+   analogWrite(ENB,0);
    digitalWrite(M11,0);
    digitalWrite(M12,0);
    digitalWrite(M21,0);
@@ -74,8 +76,8 @@ void TienPhai(){
    analogWrite(ENA,47);
    analogWrite(ENB,230);
  
-   digitalWrite(M11,0);
-   digitalWrite(M12,1);
+   digitalWrite(M11,1);
+   digitalWrite(M12,0);
  
    digitalWrite(M21,1);
    digitalWrite(M22,0);
