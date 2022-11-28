@@ -1,17 +1,22 @@
-const int CE = 49;
-const int CSN = 53;
+ //FRONT LEFT WHEEL
+#define FL1 22
+#define FL2 24
+ //FRONT RIGHT WHEEL
+#define FR1 26
+#define FR2 28
+ //BACK LEFT WHEEL
+#define BL1 30
+#define BL2 32
+ //BACK RIGHT WHEEL
+#define BR1 34
+#define BR2 36
+ //PWM
+#define FrontENA A15
+#define FrontENB A14
+#define BackENA A13
+#define BackENB A12
  
-#define M12 5//Phai
-#define M11 4//Phai
-#define M21 3//Trai
-#define M22 2//Trai
- 
-#define ENA 9
-#define ENB 8
- 
-#define trai1 10
-#define trai2 11
-#define phai1 12
-#define phai2 13
- 
- 
+#define trai1 47
+#define trai2 45
+#define phai1 43
+#define phai2 41
