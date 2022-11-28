@@ -1,4 +1,5 @@
-#include "Mega_defines.h"
+#include "main.h"
+#include <Arduino.h>
  
 #define BT Serial3
 
@@ -6,148 +7,198 @@
 char cmd;
 ///--------------------Chuyển động của xe-------------
 void Dung(){
-   analogWrite(ENA,0);
-   analogWrite(ENB,0);
-   digitalWrite(M11,0);
-   digitalWrite(M12,0);
-   digitalWrite(M21,0);
-   digitalWrite(M22,0);
+   analogWrite(FrontENA,0);
+   analogWrite(FrontENB,0);
+   analogWrite(BackENA,0);
+   analogWrite(BackENB,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,1);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,1);
+   digitalWrite(BL1,1);
+   digitalWrite(BL2,1);
+   digitalWrite(BR1,1);
+   digitalWrite(BR2,1);
  
    Serial.println('S');
 }
 void Tien(){
-   analogWrite(ENA,180);
-   analogWrite(ENB,180);
+   analogWrite(FrontENA,180);
+   analogWrite(FrontENB,180);
+   analogWrite(BackENA,180);
+   analogWrite(BackENB,180);
  
-   digitalWrite(M11,1);
-   digitalWrite(M12,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,0);
  
-   digitalWrite(M21,1);
-   digitalWrite(M22,0);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,0);
+
+   digitalWrite(BL1,1);
+   digitalWrite(BL2,0);
    
+   digitalWrite(BR1,1);
+   digitalWrite(BR2,0);
+
    Serial.println('F');
 }
 void Lui(){
-   analogWrite(ENA,180);
-   analogWrite(ENB,180);
+   analogWrite(FrontENA,180);
+   analogWrite(FrontENB,180);
  
-   digitalWrite(M11,0);
-   digitalWrite(M12,1);
+   digitalWrite(FL1,0);
+   digitalWrite(FL2,1);
  
-   digitalWrite(M21,0);
-   digitalWrite(M22,1);
+   digitalWrite(FR1,0);
+   digitalWrite(FR2,1);
+
+   digitalWrite(BL1,0);
+   digitalWrite(BL2,1);
+   
+   digitalWrite(BR1,0);
+   digitalWrite(BR2,1);
    Serial.println('B');
 }
 void QuayTrai(){
-   analogWrite(ENA,180);
-   analogWrite(ENB,180);
+   analogWrite(FrontENA,180);
+   analogWrite(FrontENB,180);
  
-   digitalWrite(M11,1);
-   digitalWrite(M12,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,0);
  
-   digitalWrite(M21,0);
-   digitalWrite(M22,1);
+   digitalWrite(FR1,0);
+   digitalWrite(FR2,1);
    Serial.println('L');
 }
 void QuayPhai(){
-   analogWrite(ENA,180);
-   analogWrite(ENB,180);
+   analogWrite(FrontENA,180);
+   analogWrite(FrontENB,180);
  
-   digitalWrite(M11,0);
-   digitalWrite(M12,1);
+   digitalWrite(FL1,0);
+   digitalWrite(FL2,1);
  
-   digitalWrite(M21,1);
-   digitalWrite(M22,0);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,0);
+   
+   digitalWrite(BL1,0);
+   digitalWrite(BL2,1);
+   
+   digitalWrite(BR1,1);
+   digitalWrite(BR2,0);
    Serial.println('R');
 }
 void TienTrai(){
-   analogWrite(ENA,230);
-   analogWrite(ENB,47);
+   analogWrite(FrontENA,230);
+   analogWrite(FrontENB,60);
  
-   digitalWrite(M11,1);
-   digitalWrite(M12,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,0);
  
-   digitalWrite(M21,1);
-   digitalWrite(M22,0);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,0);
  
+   digitalWrite(BL1,1);
+   digitalWrite(BL2,0);
+   
+   digitalWrite(BR1,1);
+   digitalWrite(BR2,0);
+
    Serial.println('1');
 }
 void TienPhai(){
-   analogWrite(ENA,47);
-   analogWrite(ENB,230);
+   analogWrite(FrontENA,60);
+   analogWrite(FrontENB,230);
  
-   digitalWrite(M11,1);
-   digitalWrite(M12,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,0);
  
-   digitalWrite(M21,1);
-   digitalWrite(M22,0);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,0);
  
+   digitalWrite(BL1,1);
+   digitalWrite(BL2,0);
+   
+   digitalWrite(BR1,1);
+   digitalWrite(BR2,0);
+
    Serial.println('2');
 }
 void LuiTrai(){
-   analogWrite(ENA,230);
-   analogWrite(ENB,47);
+   analogWrite(FrontENA,230);
+   analogWrite(FrontENB,60);
  
-   digitalWrite(M11,0);
-   digitalWrite(M12,1);
+   digitalWrite(FL1,0);
+   digitalWrite(FL2,1);
  
-   digitalWrite(M21,0);
-   digitalWrite(M22,1);
+   digitalWrite(FR1,0);
+   digitalWrite(FR2,1);
  
+   digitalWrite(BL1,0);
+   digitalWrite(BL2,1);
+   
+   digitalWrite(BR1,0);
+   digitalWrite(BR2,1);
+
    Serial.println('4');
 }
 void LuiPhai(){
-   analogWrite(ENA,47);
-   analogWrite(ENB,230);
+   analogWrite(FrontENA,60);
+   analogWrite(FrontENB,230);
  
-   digitalWrite(M11,0);
-   digitalWrite(M12,1);
+   digitalWrite(FL1,0);
+   digitalWrite(FL2,1);
  
-   digitalWrite(M21,0);
-   digitalWrite(M22,1);
+   digitalWrite(FR1,0);
+   digitalWrite(FR2,1);
  
+   digitalWrite(BL1,0);
+   digitalWrite(BL2,1);
+   
+   digitalWrite(BR1,0);
+   digitalWrite(BR2,1);
+
    Serial.println('3');
 }
 //------------------------Chuyển động khi dò line--------------------
 void TienLine(){
-   analogWrite(ENA,100);
-   analogWrite(ENB,100);
+   analogWrite(FrontENA,120);
+   analogWrite(FrontENB,120);
  
-   digitalWrite(M11,1);
-   digitalWrite(M12,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,0);
  
-   digitalWrite(M21,1);
-   digitalWrite(M22,0);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,0);
 }
 void TraiLine(){
-   analogWrite(ENA,180);
-   analogWrite(ENB,180);
+   analogWrite(FrontENA,180);
+   analogWrite(FrontENB,180);
  
-   digitalWrite(M11,1);
-   digitalWrite(M12,0);
+   digitalWrite(FL1,1);
+   digitalWrite(FL2,0);
  
-   digitalWrite(M21,0);
-   digitalWrite(M22,1);
+   digitalWrite(FR1,0);
+   digitalWrite(FR2,1);
 }
 void PhaiLine(){
-   analogWrite(ENA,180);
-   analogWrite(ENB,180);
+   analogWrite(FrontENA,180);
+   analogWrite(FrontENB,180);
  
-   digitalWrite(M11,0);
-   digitalWrite(M12,1);
+   digitalWrite(FL1,0);
+   digitalWrite(FL2,1);
  
-   digitalWrite(M21,1);
-   digitalWrite(M22,0);
+   digitalWrite(FR1,1);
+   digitalWrite(FR2,0);
 }
 //---------------------Doline2bongngungu---------------
 void Doline1Bong(){
   byte trai = digitalRead(trai1)+digitalRead(trai2);
   byte phai = digitalRead(phai1)+digitalRead(phai2);
   //line detected by both
-  if(digitalRead(trai)>digitalRead(phai)){ //chạm line bên trái
+  if(trai<phai){ //chạm line bên trái
     TraiLine();
   }
-  else if(digitalRead(trai)<digitalRead(phai)){ //chạm line bên trái
+  else if(trai>phai){ //chạm line bên trái
     PhaiLine();
   }
   else TienLine();
@@ -163,12 +214,18 @@ void DungDoline(){
  
 //------------------------------------------
 void pinModeSetup(){
-  pinMode(M11,OUTPUT);
-  pinMode(M12,OUTPUT);
-  pinMode(M21,OUTPUT);
-  pinMode(M22,OUTPUT);
-  pinMode(ENA,OUTPUT);
-  pinMode(ENB,OUTPUT);
+  pinMode(FL1,OUTPUT);
+  pinMode(FL2,OUTPUT);
+  pinMode(FR1,OUTPUT);
+  pinMode(FR2,OUTPUT);
+  pinMode(BL1,OUTPUT);
+  pinMode(BL2,OUTPUT);
+  pinMode(BR1,OUTPUT);
+  pinMode(BR2,OUTPUT);
+  pinMode(FrontENA,OUTPUT);
+  pinMode(FrontENB,OUTPUT);
+  pinMode(BackENA,OUTPUT);
+  pinMode(BackENB,OUTPUT);
  
   pinMode(trai1,INPUT);
   pinMode(trai2,INPUT);
@@ -220,7 +277,7 @@ void loop() {
   } else Dung();
   bool autoMode=0;
   if(cmd=='A') autoMode=1;
-  while(autoMode==1){ 
+  while(autoMode==1){
     cmd=BT.read();
     if(cmd=='X'){
       DungDoline();
